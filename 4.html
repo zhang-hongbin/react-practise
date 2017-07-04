@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>    
+    <title>this is 4st practise</title>
+</head>
+
+<body>
+    <div id="haha"></div>
+    <script type="text/babel">
+        class Hello extends React.Component {
+            render() {
+                return <h1>Welcome to {this.props.name}</h1>;
+            }
+        }
+        ReactDOM.render(
+            <Hello name='shandiangou'/>,
+            document.getElementById('haha')
+        );
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复合组件的应用,props传参</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>  
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+        class Name extends React.Component{
+            render(){
+                return <div>{this.props.name}</div>;
+            }
+        }
+
+        class Link extends React.Component{
+            render(){
+                return <div>{this.props.link}</div>;
+            }
+        }
+
+        class Website extends React.Component{
+            render(){
+                return <div>
+                    <Name name={this.props.name} />
+                    <Link link={this.props.link} />
+                </div>;
+            }
+        }
+        ReactDOM.render(
+            <Website name='zhanghongbin' link='http://www.zhanghongbin.top' />,
+            document.getElementById('content')
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>默认props实例</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>       
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+        class Content extends React.Component{
+            static defaultProps ={
+                num:'这是测试数11'
+            };
+            render(){
+                return <div>{this.props.num}</div>;
+            };
+        }
+        ReactDOM.render(
+            <Content />,
+            document.getElementById('content'));
+    </script>
+    
+</body>
+</html>

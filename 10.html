@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>      
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+      class LikeButton extends React.Component {
+        constructor(props){
+          super(props);
+          this.state = {
+            liked: false,
+            value: "crlin"
+          };
+        };
+        handleClick(){
+          this.setState({
+            liked: !this.state.liked
+          });
+        };
+
+        handleChange(event){
+          this.setState({
+            value: event.target.value
+          });
+        };
+
+        render(){
+          let text = this.state.liked ? 'like' : 'haven\'t liked',
+              value = this.state.value;
+          return (   
+            <div> 
+              <p onClick={this.handleClick.bind(this)}>You {text} this. Click to toggle.</p>
+              <input type="text" value={value} onChange={this.handleChange.bind(this)} />
+              <p>{value}</p>
+            </div>
+          );
+        };
+      }
+
+      ReactDOM.render(
+        <LikeButton />,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
